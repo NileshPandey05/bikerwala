@@ -1,1 +1,161 @@
-/* You can add global styles to this file, and also import other style files */
+/* Tailwind */
+@import "tailwindcss";
+
+/* =========================
+   ROOT THEME VARIABLES
+   ========================= */
+:root {
+  /* Colors */
+  --bg-primary: #000000;        /* main background */
+  --bg-secondary: #0f0f0f;      /* cards / sections */
+  --bg-tertiary: #1a1a1a;
+
+  --text-primary: #ffffff;     /* main text */
+  --text-secondary: #cfcfcf;   /* muted text */
+  --text-tertiary: #9a9a9a;
+
+  --accent-primary: #ff2d2d;   /* red accent */
+  --accent-hover: #ff4d4d;
+  --accent-soft: rgba(255, 45, 45, 0.15);
+
+  --border-color: #2a2a2a;
+
+  /* Typography */
+  --font-primary: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: "Lato", system-ui, sans-serif;
+
+  /* Sizes */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.35s ease;
+}
+
+/* =========================
+   BASE RESET
+   ========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+}
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+h1 { font-size: 20px; font-weight: 700; }
+h2 { font-size: 18px; }
+h3 { font-size: 16px; }
+h4 { font-size: 14px; }
+h5 { font-size: 12px; }
+h6 { font-size: 11px; }
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* =========================
+   LINKS
+   ========================= */
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* =========================
+   LISTS & STRUCTURE
+   ========================= */
+ol,
+ul {
+  list-style: none;
+}
+
+article,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* =========================
+   COMMON UTILITIES
+   ========================= */
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.text-muted {
+  color: var(--text-tertiary);
+}
+
+.accent {
+  color: var(--accent-primary);
+}
+
+/* =========================
+   SCROLLBAR (optional but 🔥)
+   ========================= */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}
