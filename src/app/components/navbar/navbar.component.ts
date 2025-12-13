@@ -20,7 +20,7 @@ export class NavbarComponent implements AfterViewInit {
     this.t1 = gsap.timeline({paused:true})
     this.t1.to('.sidebar',{
       left:0,
-      duration:1,
+      duration:0.8,
       ease:'power1.in'
     })
     this.t1.reverse();

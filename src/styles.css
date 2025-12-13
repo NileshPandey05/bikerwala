@@ -63,18 +63,7 @@ body {
 /* =========================
    TYPOGRAPHY
    ========================= */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  color: var(--text-primary);
-  font-weight: 600;
-}
 
-h1 { font-size: 20px; font-weight: 700; }
-h2 { font-size: 18px; }
-h3 { font-size: 16px; }
-h4 { font-size: 14px; }
-h5 { font-size: 12px; }
-h6 { font-size: 11px; }
 
 p {
   color: var(--text-secondary);

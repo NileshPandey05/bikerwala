@@ -1,6 +1,6 @@
-<div class="border border-(--text-primary) text-(--text-primary) w-full rounded-xl">
-  <div class="flex items-center  px-2 ">
-    <input class="outline-none" type="text" name="" placeholder="Search" id="">
+<div [ngStyle] = "{width: width()}" class="border border-(--text-primary) text-(--text-primary) rounded-xl">
+  <div class="flex items-center justify-between  px-2 ">
+    <input class="outline-none p-1" type="text" name="" [placeholder]="placeholder()" id="">
     <button mat-icon-button>
     <fa-icon class="text-white! flex justify-center" [icon]="faMagnifyingGlass" />
     </button>
