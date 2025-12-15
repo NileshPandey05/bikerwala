@@ -2,6 +2,7 @@ import { NgClass, TitleCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { SliderComponent } from "../slider/slider.component";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core"
+import { BikeService } from '../../services/bike.service';
 
 @Component({
   selector: 'app-feature-bike',
@@ -25,6 +26,19 @@ export class FeatureBikeComponent {
   categories = ["trending", "electric", "upcoming", "popular"]
 
   selectedCategory = "trending"
+
+  bikes: any[] = []
+  loading = false;
+  error = '';
+
+  constructor(private bikeService: BikeService) {}
+
+  ngOnInit(){
+    console.log(this.bikeService.getBike().subscribe((data:any) => {
+      console.log(data.data)
+    }))
+  } 
+
 
   onCategorySelect(category: string){
      this.selectedCategory = category;
