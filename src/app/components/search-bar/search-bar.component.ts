@@ -68,9 +68,10 @@ select(value: string) {
       ...BIKE_SEARCH_DATA.engineCCRanges,
       ...BIKE_SEARCH_DATA.priceRanges
     ]
-    this.suggestions.set(data.filter((item)=> item.toLowerCase().includes(term)).slice(0,8))
+    this.suggestions.set(data.filter((item)=> item.toLowerCase().includes(term)).slice(0,5))
     console.log("searched :",this.suggestions())
     console.log(" recent searched :",this.recentSearch)
-  },1000)
+    this.recentSearch = this.recentSearch.filter((i)=> i !== '').slice(0,5)
+  },500)
  }
 }
