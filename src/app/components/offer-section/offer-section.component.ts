@@ -11,25 +11,25 @@ import { CardComponent } from "../card/card.component";
   schemas:  [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class OfferSectionComponent {
-  slidesPerView = 4;
+  
   spaceBetween = 5;
   loop = true;
   navigation = true;
-  // breakpoints = {
-  //   0: {
-  //     slidesPerView: 1,
-  //     spaceBetween: 8,
-  //   },
-  //   640: {
-  //     slidesPerView: 2,
-  //     spaceBetween: 10,
-  //   },
-  //   1024: {
-  //     slidesPerView: 3,
-  //     spaceBetween: 12,
-  //   },
-  //   // no 1280+ breakpoint → falls back to slidesPerView = 4
-  // };
+  breakpoints = {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 8,
+    },
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 12,
+    },
+    // no 1280+ breakpoint → falls back to slidesPerView = 4
+  };
 
   slides = [
     {
