@@ -9,10 +9,12 @@
     <!-- Slider -->
 
 
-    <app-slider [slidesPerView]="slidesPerView" [spaceBetween]="spaceBetween" [navigation]="{
+    <app-slider  [spaceBetween]="spaceBetween" [navigation]="{
     prevEl: '.swiper-prev',
     nextEl: '.swiper-next'
-  }" containerClass="w-full h-50 mt-6 rounded-md">
+  }" 
+  [breakpoints]="breakpoints"
+  containerClass="w-full h-50 mt-6 rounded-md">
       @for (slide of slides; track slide.id) {
       <swiper-slide>
         <div class="h-full rounded-2xl flex items-center justify-center bg-[#424242] p-4">
