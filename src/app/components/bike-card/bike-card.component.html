@@ -5,18 +5,12 @@
      flex gap-5 cursor-pointer'
   "
 >
-
   <!-- ⭐ Rating (TOP RIGHT FLOATING) -->
   <div
-    class="absolute top-4 right-4
-           flex items-center gap-2
-           bg-[#121212] border border-white/10
-           rounded-lg px-2 py-1 text-xs"
+    class="absolute top-4 right-4 flex items-center gap-2 bg-[#121212] border border-white/10 rounded-lg px-2 py-1 text-xs"
   >
     <span
-      class="flex items-center justify-center
-             w-4 h-4 rounded-sm
-             bg-green-500 text-black text-[10px] font-bold"
+      class="flex items-center justify-center w-4 h-4 rounded-sm bg-green-500 text-black text-[10px] font-bold"
     >
       ★
     </span>
@@ -27,9 +21,7 @@
 
     <span class="text-gray-400">|</span>
 
-    <span class="text-gray-400">
-      {{ reviews }} Ratings
-    </span>
+    <span class="text-gray-400"> {{ reviews }} Ratings </span>
   </div>
 
   <!-- Bike Image -->
@@ -41,7 +33,6 @@
 
   <!-- Bike Content -->
   <div class="flex-1 space-y-2">
-
     <h3 class="text-lg font-semibold text-white flex items-center gap-1">
       {{ name }}
       <i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
@@ -57,18 +48,13 @@
       {{ price }}
     </p>
 
-    <p class="text-xs text-gray-400">
-      On-Road Price, {{ location }}
-    </p>
+    <p class="text-xs text-gray-400">On-Road Price, {{ location }}</p>
 
     <button
-      class="mt-2 px-4 py-1.5 text-sm rounded-md
-             border border-cyan-400 text-cyan-400
-             hover:bg-cyan-400 hover:text-black transition"
+      class="mt-2 px-4 py-1.5 text-sm rounded-md border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition"
       (click)="$event.stopPropagation()"
     >
       View Price Breakup
     </button>
-
   </div>
 </app-card>
