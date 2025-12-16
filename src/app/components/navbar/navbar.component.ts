@@ -72,14 +72,17 @@ export class NavbarComponent implements AfterViewInit {
    ngAfterViewInit() {
     this.t1 = gsap.timeline({paused:true})
     this.t1.to('.sidebar',{
-      left:0,
-      duration:0.8,
-      ease:'power1.in'
+      opacity:100,
+      duration:0.5,
+      ease:'power3.in',
     })
     this.t1.reverse();
 
 }
 togglemenu() {
   this.t1.reversed(!this.t1.reversed())
+}
+close(){
+  this.t1.reverse()
 }
 }
