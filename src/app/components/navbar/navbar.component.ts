@@ -71,10 +71,16 @@ export class NavbarComponent implements AfterViewInit {
    faLanguage=faLanguage
    ngAfterViewInit() {
     this.t1 = gsap.timeline({paused:true})
-    this.t1.to('.sidebar',{
+    this.t1.to('.overlay',{
+      display:'block',
       opacity:100,
       duration:0.5,
+      ease:'back.in'
+    })
+     this.t1.to('.sidebar',{
+      duration:0.1,
       ease:'power3.in',
+      left:0
     })
     this.t1.reverse();
 

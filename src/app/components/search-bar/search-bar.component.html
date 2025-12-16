@@ -12,9 +12,11 @@
       <div class="m-1">
         <h1 class="m-2 text-lg font-bold">Recent Searched</h1>
         @for (item of recentSearch; track item) {
-          <div  class="flex items-center  mx-1 cursor-pointer gap-4">
-            <mat-icon >access_time</mat-icon>
-            <h1 (click)="select(item)" class="text-xl mb-1">{{item}}</h1>
+          <div  class="flex items-center overflow-hidden cursor-pointer gap-4">
+            <button mat-icon-button>
+              <mat-icon class="mb-1" >access_time</mat-icon>
+            </button>
+            <h1 (click)="select(item)" class="text-xl mb-1 truncate">{{item}}</h1>
             <button (click)="delete(item)"  mat-icon-button><mat-icon class="flex justify-center mb-4" >delete</mat-icon></button>
           </div>
         }
