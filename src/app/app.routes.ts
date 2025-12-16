@@ -24,7 +24,10 @@ export const routes: Routes = [
         .then(m => m.BrandsBikesComponent),
     // canActivate: [authGuard]
   },
-
+   {
+    path:'brand/bikebrand',
+    loadComponent:()=> import('./components/bikecomponents/royal-enfield/royal-enfield.component')
+   },
   {
     path: 'brand/:brandId',
     loadComponent: () =>

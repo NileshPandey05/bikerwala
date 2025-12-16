@@ -46,7 +46,7 @@ selectedBike(){
   }
 }
 selectedSearch(item:string){
-    this.router.navigate(['/bike-brand'],{
+    this.router.navigate(['/brand/bikebrand'],{
     queryParams:{
       bike : item
     }
