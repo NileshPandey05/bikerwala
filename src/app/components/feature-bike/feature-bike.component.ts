@@ -3,10 +3,11 @@ import { Component } from '@angular/core';
 import { SliderComponent } from "../slider/slider.component";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core"
 import { Prodcuts, productsList } from '../../data/data';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-feature-bike',
-  imports: [NgClass, SliderComponent, UpperCasePipe ],
+  imports: [NgClass, SliderComponent, UpperCasePipe, RouterLink ],
   templateUrl: './feature-bike.component.html',
   styleUrl: './feature-bike.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

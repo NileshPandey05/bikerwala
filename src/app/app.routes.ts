@@ -20,6 +20,21 @@ export const routes: Routes = [
     path:'signUp',
     loadComponent:() => import('./components/sign-up/sign-up.component')
   },
+  {
+    path: 'brand/:brandId/:brandbike',
+    loadComponent: () =>
+      import('./pages/brands-bikes/brands-bikes.component')
+        .then(m => m.BrandsBikesComponent),
+    // canActivate: [authGuard]
+  },
+
+  {
+    path: 'brand/:brandId',
+    loadComponent: () =>
+      import('./pages/brands/brands.component')
+        .then(m => m.BrandsComponent),
+    // canActivate: [authGuard]
+  },
   //  {
   //   path: 'bike-brand',
   //   component: BikeBrandListComponent,
