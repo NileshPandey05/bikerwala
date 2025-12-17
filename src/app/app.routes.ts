@@ -20,14 +20,14 @@ export const routes: Routes = [
     path:'signUp',
     component:SignUpComponent,
   },
-  {
-    path: ':brandId/:brandbike',
-    canActivate: [authGuard],
-    loadComponent: () =>
-      import('./pages/brands-bikes/brands-bikes.component')
-        .then(m => m.BrandsBikesComponent),
+  // {
+  //   path: ':brandId/:brandbike',
+  //   canActivate: [authGuard],
+  //   loadComponent: () =>
+  //     import('./pages/brands-bikes/brands-bikes.component')
+  //       .then(m => m.BrandsBikesComponent),
 
-      },
+  //     },
       {
         path:"royal",
         component:RoyalEnfieldComponent
