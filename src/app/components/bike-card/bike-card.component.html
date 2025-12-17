@@ -1,8 +1,7 @@
 <app-card [tailwindClass]="
-    'relative flex gap-5 p-4 mb-4 mt-4 cursor-pointer
+    'relative flex gap-5 p-4 mb-4 mt-4
      border border-[var(--border-color)]
-     rounded-[var(--radius-md)]
-     transition hover:border-[#91D9D3]'
+     rounded-[var(--radius-md)]'
   ">
 
 
@@ -32,7 +31,7 @@
 
 
     <!-- Bike Image -->
-    <img [src]="image" alt="bike" class="w-40 h-24 object-contain rounded-md" />
+    <img [src]="image" alt="bike" class="hover:cursor-pointer w-40 h-24 object-contain rounded-md" />
 
     <!-- Bike Content -->
     <div class="flex-1 space-y-2">
@@ -58,8 +57,7 @@
         <button class="mt-2 px-4 py-1.5 text-sm font-semibold rounded-md
          border border-[#91D9C7]
          text-[#91D9C7]
-         hover:cursor-pointer
-         hover:text-white" (click)="$event.stopPropagation()">
+         hover:cursor-pointer" (click)="$event.stopPropagation()">
             View Price Breakup
         </button>
 

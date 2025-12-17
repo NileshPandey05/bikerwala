@@ -1,54 +1,62 @@
 <h3 class="text-white font-semibold text-lg mb-4">
   Brands Similar to Royal Enfield
 </h3>
+
 <app-card
   [tailwindClass]="
-    'p-4 mb-2 
-     bg-[var(--card-bg-color)]
-     border border-[var(--border-color)]
-     rounded-[var(--radius-md)]'
-  " 
+    'p-0 mb-4 
+     bg-[#1b1b1b]
+     border border-[#2a2a2a]
+     rounded-xl
+     overflow-hidden'
+  "
 >
 
-
   <!-- Brand Grid -->
-  <div class="grid grid-cols-3 gap-4 text-center">
+  <div class="grid grid-cols-3 divide-x divide-y divide-[#2a2a2a]">
 
     <div
       *ngFor="let brand of brands"
-      class="space-y-2"
+      class="flex flex-col items-center
+             px-3 py-4
+             text-center gap-1"
     >
-      <div
-  class="bg-(--card-bg-color) rounded-md h-12
-         flex items-center justify-center p-2"
->
 
+      <!-- Logo Tile -->
+      <div
+        class="bg-white rounded-md h-12 w-full
+               flex items-center justify-center p-2"
+      >
         <img
           [src]="brand.logo"
           [alt]="brand.name"
-          class="max-h-8 object-contain"
+          class="max-h-15 object-contain"
         />
       </div>
 
-      <p class="text-sm text-white font-medium">
+      <!-- Brand Name -->
+      <p class="text-sm text-white font-medium mt-2">
         {{ brand.name }}
       </p>
 
+      <!-- Bike Count -->
       <p class="text-xs text-gray-400">
         {{ brand.bikes }} Bikes
       </p>
+
     </div>
 
   </div>
 
   <!-- Footer CTA -->
- <div
-  class="mt-4 pt-3 border-t border-(--border-color)
-         text-center text-sm
-         text-(--accent-primary)
-         cursor-pointer hover:underline"
->
-  View More Brands
-</div>
+  <div
+    class="border-t border-[#2a2a2a]
+           py-3
+           text-center text-sm
+           text-[#4FB1DC]
+           cursor-pointer hover:underline"
+  >
+    View More Brands
+  </div>
 
 </app-card>
