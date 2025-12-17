@@ -7,5 +7,6 @@ import { provideHotToastConfig } from '@ngxpert/hot-toast';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient(), 
-    provideHotToastConfig({style: {marginTop:'70px'}, stacking: 'depth', duration: 1000}),]
+    provideHotToastConfig({style: {marginTop:'70px'}, stacking: 'depth', duration: 1000}), provideHotToastConfig(),
+  ]
 };
