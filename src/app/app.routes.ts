@@ -20,7 +20,7 @@ export const routes: Routes = [
     component:SignUpComponent,
   },
   {
-    path: '/:brandId/:brandbike',
+    path: ':brandId/:brandbike',
     canActivate: [authGuard],
     loadComponent: () =>
       import('./pages/brands-bikes/brands-bikes.component')
@@ -33,7 +33,7 @@ export const routes: Routes = [
     loadComponent:()=> import('./components/bikecomponents/royal-enfield/royal-enfield.component')
    },
   {
-    path: 'brand/:brandId',
+    path: ':brandId',
     canActivate: [authGuard],
     loadComponent: () =>
       import('./pages/brands/brands.component')
