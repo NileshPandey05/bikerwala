@@ -95,11 +95,11 @@
         <div class="grid
              grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
           @for (b of visibleBrands; track b.id) {
-          <div (click)="getBrandId(b.id)" class="flex flex-col items-center justify-center
+          <div (click)="getBrandId(b.label)" class="flex flex-col items-center justify-center
                  py-6 cursor-pointer
                  border-r border-b border-gray-700
                  hover:bg-[#1f1f1f] transition"
-                 [routerLink]="['/brand', b.id]"
+                 [routerLink]="['/', b.label]"
                  >
             <img [src]="b.imageUrl" [alt]="b.label" class="w-14 h-14 object-contain mb-2 scale-160" />
 

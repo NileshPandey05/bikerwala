@@ -2,7 +2,7 @@ import { CommonModule, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { BIKE_SEARCH_DATA } from '../../dummy-data';
-import { brand, BrandName, Prodcuts } from '../../data/data';
+import { brands, BrandName, Prodcuts } from '../../data/data';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -155,7 +155,7 @@ export class BrowseBikeComponent {
     },
   ]
 
-  brand: BrandName[] = brand
+  brand: BrandName[] = brands
 
   VISIBLE_COUNT = 10;
 
