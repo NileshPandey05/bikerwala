@@ -24,6 +24,7 @@ export const authGuard: CanActivateFn = () => {
   toaster.error('Please Login');
   authService.removeToken();
   router.navigate(['/signIn']);
+  alert("Please Login First")
   return false;
 };
 
