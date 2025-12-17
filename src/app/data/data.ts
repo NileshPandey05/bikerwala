@@ -1,4 +1,8 @@
+import { amperelogo, apriliaLogo, bajajLogo, baseUrl, benelliLogo, bgaussLogo, bmwLogo, bounceLogo, brixtonLogo, bsaLogo, cfmotoLogo, ducatiLogo, evoletLogo, ferratoLogo, gemopaiLogo, harleyDavidsonLogo, heroLogo, hondaLogo, hopElectricLogo, husqvarnaLogo, indianLogo, ivoomiLogo, jawaLogo, joyEBikeLogo, kawasakiLogo, keewayLogo, kineticGreenLogo, kineticLogo, ktmLogo, lambrettaLogo, lectrixLogo, matterLogo, motoGuzziLogo, motoMoriniLogo, nortonLogo, obenLogo, odysseLogo, okinawaLogo, olaLogo, pureEvLogo, qjMotorLogo, quantumEnergyLogo, revoltLogo, royalEnfieldLogo, simpleEnergyLogo, suzukiLogo, triumphLogo, tvsLogo, ultravioletteLogo, vespaLogo, vidaLogo, vlfLogo, yamahaLogo, yezdiLogo, yoLogo, zontesLogo } from "./imageUrls";
+
+
 export interface Prodcuts {
+    slug: string
     title: string;
     imageUrl?: string;
     price?: string;
@@ -10,7 +14,8 @@ export interface Prodcuts {
 
     /* 🔹 Added fields (no breaking changes) */
 
-    id?: string;
+    id?: number;
+    stars?: number
 
     fuelType?: 'petrol' | 'electric' | 'cng';
     bikeType?: 'commuter' | 'sports' | 'cruiser' | 'adventure' | 'scooter' | 'tourer';
@@ -28,19 +33,19 @@ export interface Prodcuts {
     launchStatus?: 'launched' | 'upcoming';
 
     tags?: string[];        // trending, popular, electric, budget etc.
+
+    kerbWeight?: number;   // in kg
+    seatHeight?: number;   // in mm
+    fuelTankCapacity?: number | null
 }
 
-export interface BrandName {
-    id: string,
-    imageUrl: string
-    label: string
-}
 
-const productsList: Prodcuts[] = [
+export const productsList: Prodcuts[] = [
     {
-        "id": "re-classic-350",
+        "id": 1,
+        "slug": "re-classic-350",
         "title": "Royal Enfield Classic 350",
-        "imageUrl": "/assests/bike_img/royalenfield/classic-350.png",
+        "imageUrl": `/classic-350.png`,
         "price": "1,81,129",
         "priceExShowroom": 181129,
         "rating": "4.5",
@@ -56,7 +61,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "re-continental-gt-650",
+        "id": 2,
+        "slug": "re-continental-gt-650",
         "title": "Royal Enfield Continental GT 650",
         "imageUrl": "/assests/bike_img/royalenfield/continental-gt.png",
         "price": "3,75,000",
@@ -74,7 +80,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "re-hunter-350",
+        "id": 3,
+        "slug": "re-hunter-350",
         "title": "Royal Enfield Hunter 350",
         "imageUrl": "/assests/bike_img/royalenfield/hunter-350.png",
         "price": "1,55,000",
@@ -92,7 +99,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "yamaha-mt-15",
+        "id": 4,
+        "slug": "yamaha-mt-15",
         "title": "Yamaha MT-15",
         "imageUrl": "/assests/bike_img/yamaha/mt-15.png",
         "price": "1,66,000",
@@ -110,7 +118,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "bajaj-pulsar-n160",
+        "id": 5,
+        "slug": "bajaj-pulsar-n160",
         "title": "Bajaj Pulsar N160",
         "imageUrl": "/assests/bike_img/bajaj/pulsar-n160.png",
         "price": "1,35,000",
@@ -128,7 +137,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "yamaha-r15-v4",
+        "id": 6,
+        "slug": "yamaha-r15-v4",
         "title": "Yamaha R15 V4",
         "imageUrl": "/assests/bike_img/yamaha/r15.png",
         "price": "1,82,000",
@@ -146,7 +156,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "tvs-ronin-225",
+        "id": 7,
+        "slug": "tvs-ronin-225",
         "title": "TVS Ronin 225",
         "imageUrl": "/assests/bike_img/tvs/ronin.png",
         "price": "1,49,000",
@@ -164,7 +175,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "yamaha-xsr-155",
+        "id": 8,
+        "slug": "yamaha-xsr-155",
         "title": "Yamaha XSR 155",
         "imageUrl": "/assests/bike_img/yamaha/xsr-155.png",
         "price": "1,36,000",
@@ -182,7 +194,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "Honda hness-cb-350",
+        "id": 9,
+        "slug": "Honda hness-cb-350",
         "title": "Honda HNESS-CB 350",
         "imageUrl": "/assests/bike_img/honda/hness-cb350.png",
         "price": "3,90,677",
@@ -200,7 +213,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "bajaj-platina-100",
+        "id": 10,
+        "slug": "bajaj-platina-100",
         "title": "Bajaj Platina 100",
         "imageUrl": "/assests/bike_img/bajaj/platina-100.png",
         "price": "65,000",
@@ -218,7 +232,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "bajaj-platina-110",
+        "id": 11,
+        "slug": "bajaj-platina-110",
         "title": "Bajaj Platina 110",
         "imageUrl": "/assests/bike_img/bajaj/platina-110.png",
         "price": "70,000",
@@ -236,7 +251,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "bajaj-ct-110",
+        "id": 12,
+        "slug": "bajaj-ct-110",
         "title": "Bajaj CT 110",
         "imageUrl": "/assests/bike_img/bajaj/ct-110.png",
         "price": "69,000",
@@ -254,7 +270,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "honda-activa-6g",
+        "id": 13,
+        "slug": "honda-activa-6g",
         "title": "Honda Activa 6G",
         "imageUrl": "/assests/bike_img/honda/activa-6g.png",
         "price": "1,06,000",
@@ -272,7 +289,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "honda-activa-125",
+        "id": 14,
+        "slug": "honda-activa-125",
         "title": "Honda Activa 125",
         "imageUrl": "/assests/bike_img/honda/activa-125.png",
         "price": "82,000",
@@ -290,7 +308,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "honda-dio",
+        "id": 15,
+        "slug": "honda-dio",
         "title": "Honda Dio",
         "imageUrl": "/assests/bike_img/honda/dio.png",
         "price": "74,000",
@@ -308,7 +327,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "re-bullet",
+        "id": 16,
+        "slug": "re-bullet",
         "title": "Royal Enfield Bullet",
         "imageUrl": "/assests/bike_img/royalenfield/bullet.png",
         "price": "1,73,000",
@@ -326,7 +346,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "re-classic-350",
+        "id": 17,
+        "slug": "re-classic-350",
         "title": "Royal Enfield Classic 350",
         "imageUrl": "/assests/bike_img/royalenfield/classic-350.png",
         "price": "1,81,129",
@@ -344,7 +365,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "re-meteor-350",
+        "id": 18,
+        "slug": "re-meteor-350",
         "title": "Royal Enfield Meteor 350",
         "imageUrl": "/assests/bike_img/royalenfield/meteor-350.png",
         "price": "2,05,000",
@@ -362,7 +384,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "tvs-ntorq-125",
+        "id": 19,
+        "slug": "tvs-ntorq-125",
         "title": "TVS NTorq 125",
         "imageUrl": "/assests/bike_img/tvs/ntorq-125.png",
         "price": "84,000",
@@ -380,7 +403,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "tvs-star-city",
+        "id": 20,
+        "slug": "tvs-star-city",
         "title": "TVS Star City",
         "imageUrl": "/assests/bike_img/tvs/star-city.png",
         "price": "75,000",
@@ -398,7 +422,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "tvs-sport",
+        "id": 21,
+        "slug": "tvs-sport",
         "title": "TVS Sport",
         "imageUrl": "/assests/bike_img/tvs/sport.png",
         "price": "59,000",
@@ -416,7 +441,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "honda-cb1000",
+        "id": 22,
+        "slug": "honda-cb1000",
         "title": "Honda CB1000",
         "price": "₹14,00,000",
         "imageUrl": "/assests/bike_img/honda/cb1000.png",
@@ -432,7 +458,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "upcoming"
     },
     {
-        "id": "honda-cb1000gt",
+        "id": 22,
+        "slug": "honda-cb1000gt",
         "title": "Honda CB1000GT",
         "price": "₹15,00,000",
         "imageUrl": "/assests/bike_img/honda/cb1000gt.png",
@@ -448,7 +475,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "upcoming"
     },
     {
-        "id": "bajaj-pulsar-ns",
+        "id": 23,
+        "slug": "bajaj-pulsar-ns",
         "title": "Bajaj Pulsar NS",
         "price": "₹1,50,000",
         "imageUrl": "/assests/bike_img/bajaj/pulsar-ns.png",
@@ -464,7 +492,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "upcoming"
     },
     {
-        "id": "bajaj-pulsar-ns125",
+        "id": 24,
+        "slug": "bajaj-pulsar-ns125",
         "title": "Bajaj Pulsar NS125",
         "price": "₹1,05,000",
         "imageUrl": "/assests/bike_img/bajaj/pulsar-ns125.png",
@@ -480,7 +509,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "upcoming"
     },
     {
-        "id": "re-bear-650",
+        "id": 25,
+        "slug": "re-bear-650",
         "title": "Royal Enfield Bear 650",
         "price": "₹3,50,000",
         "imageUrl": "/assests/bike_img/royalenfield/bear-650.png",
@@ -496,7 +526,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "upcoming"
     },
     {
-        "id": "re-classic-650",
+        "id": 26,
+        "slug": "re-classic-650",
         "title": "Royal Enfield Classic 650",
         "price": "₹3,20,000 ",
         "imageUrl": "/assests/bike_img/royalenfield/classic-650.png",
@@ -512,7 +543,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "upcoming"
     },
     {
-        "id": "re-continental-gt-450",
+        "id": 27,
+        "slug": "re-continental-gt-450",
         "title": "Royal Enfield Continental GT 450",
         "price": "₹2,70,000 ",
         "imageUrl": "/assests/bike_img/royalenfield/continental-gt-450.png",
@@ -528,7 +560,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "upcoming"
     },
     {
-        "id": "tvs-apache-rtx",
+        "id": 28,
+        "slug": "tvs-apache-rtx",
         "title": "TVS Apache RTX",
         "price": "₹2,50,000 ",
         "imageUrl": "/assests/bike_img/tvs/apache-rtx.png",
@@ -544,7 +577,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "upcoming"
     },
     {
-        "id": "honda-activa-e",
+        "id": 29,
+        "slug": "honda-activa-e",
         "title": "Honda Activa e",
         "imageUrl": "/assests/bike_img/honda/activa-e.png",
         "price": "150000",
@@ -560,7 +594,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "re-himalayan-electric",
+        "id": 30,
+        "slug": "re-himalayan-electric",
         "title": "Royal Enfield Himalayan Electric",
         "imageUrl": "/assests/bike_img/royalenfield/himalayan-electric.png",
         "price": "TBD",
@@ -575,7 +610,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "upcoming"
     },
     {
-        "id": "re-flying-flea-c6",
+        "id": 31,
+        "slug": "re-flying-flea-c6",
         "title": "Royal Enfield Flying Flea C6",
         "imageUrl": "/assests/bike_img/royalenfield/flying-flea-c6.png",
         "price": "2,00,000 ",
@@ -591,7 +627,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "upcoming"
     },
     {
-        "id": "tvs-iqube",
+        "id": 32,
+        "slug": "tvs-iqube",
         "title": "TVS iQube",
         "imageUrl": "/assests/bike_img/tvs/iqube.png",
         "price": "1,05,000",
@@ -607,7 +644,8 @@ const productsList: Prodcuts[] = [
         "launchStatus": "launched"
     },
     {
-        "id": "yamaha-aerox-e",
+        "id": 33,
+        "slug": "yamaha-aerox-e",
         "title": "Yamaha Aerox E",
         "imageUrl": "/assests/bike_img/yamaha/aerox-e.png",
         "price": "₹2,20,000 ",
@@ -624,85 +662,90 @@ const productsList: Prodcuts[] = [
     }
 ]
 
-const brand: BrandName[] = [
-  { "id": "Ampere", "imageUrl": "/assests/brands/ampere.avif" , label: "Ampere"},
-  { "id": "Aprilia", "imageUrl": "/assests/brands/aprilia.avif", label: "Aprilia" },
-
-  { "id": "Bajaj", "imageUrl": "/assests/brands/bajaj_logo.avif",label: "Bajaj" },
-  { "id": "Benelli", "imageUrl": "/assests/brands/benelli.avif", label:"Benelli" },
-  { "id": "Bmw", "imageUrl": "/assests/brands/bmw.avif", label: "BMW" },
-  { "id": "Bsa", "imageUrl": "/assests/brands/bsa.avif", label: "BSA" },
-  { "id": "Bgauss", "imageUrl": "/assests/brands/bgauss.avif", label: "Bgauss" },
-  { "id": "Bounce", "imageUrl": "/assests/brands/bounce.avif", label: "Bounce" },
-  { "id": "Brixton", "imageUrl": "/assests/brands/brixton-motorcycles.avif", label: "Brixton" },
-
-  { "id": "Cfmoto", "imageUrl": "/assests/brands/cfmoto.avif" ,label: "Cfmoto"},
-
-  { "id": "Ducati", "imageUrl": "/assests/brands/ducati.avif" , label:"Ducati" },
-
-  { "id": "Evolet", "imageUrl": "/assests/brands/evolet.avif" , label: "Evolet" },
-
-  { "id": "Ferrato", "imageUrl": "/assests/brands/ferrato.avif" , label: "Ferrato" },
-
-  { "id": "Gemopai", "imageUrl": "/assests/brands/gemopai.avif" , label: "Gemppai" },
-
-  { "id": "Harley-davidson", "imageUrl": "/assests/brands/harleydavidson.avif" , label: 'Harley-Davidson'},
-  { "id": "Hero", "imageUrl": "/assests/brands/hero.avif" , label: "Hero" },
-  { "id": "Honda",label:"Honda", "imageUrl": "/assests/brands/honda.avif" },
-  { "id": "Hop Electric",label:"Hop Electric", "imageUrl": "/assests/brands/hop-electric.avif" },
-  { "id": "Husqvarna",label:"Husqvarna", "imageUrl": "/assests/brands/husqvarna.avif" },
-
-  { "id": "Indian",label:"Indian", "imageUrl": "/assests/brands/indian.avif" },
-  { "id": "Ivoomi",label:"Ivoomi", "imageUrl": "/assests/brands/ivoomi.avif" },
-
-  { "id": "Jawa",label:"Jawa", "imageUrl": "/assests/brands/jawa.avif" },
-  { "id": "Joy Ebike",label:"Joy Ebike" ,"imageUrl": "/assests/brands/joy-ebike.avif" },
-
-  { "id": "Kawasaki",label:"Kawasaki", "imageUrl": "/assests/brands/kawasaki.avif" },
-  { "id": "Keeway",label:"Keeway", "imageUrl": "/assests/brands/keeway.avif" },
-  { "id": "Kinetic",label:"Kinetic", "imageUrl": "/assests/brands/kinetic.avif" },
-  { "id": "Kinetic Green",label:"Kinetic Green", "imageUrl": "/assests/brands/kinetic-green.avif" },
-  { "id": "Ktm",label:"Ktm", "imageUrl": "/assests/brands/ktm.avif" },
-
-  { "id": "Lambretta",label:"Lambretta", "imageUrl": "/assests/brands/lambretta.avif" },
-  { "id": "Lectrix",label:"Lectrix", "imageUrl": "/assests/brands/lectrix.avif" },
-
-  { "id": "Matter",label:"Matter", "imageUrl": "/assests/brands/matter1671004200585.avif" },
-  { "id": "Moto guzzi", label: "Moto guzzi", "imageUrl": "/assests/brands/moto-guzzi.avif" },
-  { "id": "Moto morini",label:"Moto morini", "imageUrl": "/assests/brands/moto-morini.avif" },
-
-  { "id": "Norton",label:"Norton", "imageUrl": "/assests/brands/norton.avif" },
-
-  { "id": "Oben",label:"Oben", "imageUrl": "/assests/brands/oben.png" },
-  { "id": "Odysse",label:"Odysse", "imageUrl": "/assests/brands/odysse.png" },
-  { "id": "Okinawa",label:"Okinawa", "imageUrl": "/assests/brands/okinawa.png" },
-  { "id": "Ola",label:"Ola", "imageUrl": "/assests/brands/ola.png" },
-
-  { "id": "Pure-Ev",label:"Pure-Ev", "imageUrl": "/assests/brands/pure-ev.png" },
-
-  { "id": "Qj-Motor",label:"Qj-Motor", "imageUrl": "/assests/brands/qj-motor.png" },
-  { "id": "Quantum Energy",label:"Quantum Energy", "imageUrl": "/assests/brands/quantum-energy.png" },
-
-  { "id": "Revolt",label:"Revolt", "imageUrl": "/assests/brands/revolt.png" },
-  { "id": "Royal Enfield",label:"Royal Enfield", "imageUrl": "/assests/brands/royal-enfield.webp" },
-
-  { "id": "Simple Energy", label:"Simple Energy", "imageUrl": "/assests/brands/simple_energy.png" },
-  { "id": "Suzuki",label:"Suzuki", "imageUrl": "/assests/brands/suzuki.avif" },
-
-  { "id": "TVS",label:"TVS", "imageUrl": "/assests/brands/tvs.avif" },
-  { "id": "Triumph",label:"Triumph", "imageUrl": "/assests/brands/triumph.png" },
-
-  { "id": "Ultraviolette", label:"Ultraviolette", "imageUrl": "/assests/brands/ultraviolette.png" },
-
-  { "id": "Vespa",label: "Vespa", "imageUrl": "/assests/brands/vespa.png" },
-  { "id": "Vida", label: "Vida", "imageUrl": "/assests/brands/vida.avif" },
-  { "id": "Vlf",label: "Vlf", "imageUrl": "/assests/brands/vlf.png" },
-
-  { "id": "Yamaha",label:"Yamaha", "imageUrl": "/assests/brands/yamaha.avif" },
-  { "id": "Yezdi",label:"Yezdi", "imageUrl": "/assests/brands/yezdi.png" },
-  { "id": "Yo",label:"Yo", "imageUrl": "/assests/brands/yo.png" },
-  { "id": "Zontes",label:"Zontes", "imageUrl": "/assests/brands/zontes.png" }
-]
+export interface BrandName {
+    id: number;
+    imageUrl: string;
+    label: string;
+}
 
 
-export { productsList , brand}
+export const brands: BrandName[] = [
+
+    { id: 1, imageUrl: bajajLogo, label: 'Bajaj' },
+    { id: 2, imageUrl: ktmLogo, label: 'KTM' },
+    { id: 3, imageUrl: royalEnfieldLogo, label: 'Royal Enfield' },
+    { id: 4, imageUrl: kawasakiLogo, label: 'Kawasaki' },
+    { id: 5, imageUrl: heroLogo, label: 'Hero' },
+    { id: 6, imageUrl: hondaLogo, label: 'Honda' },
+    { id: 7, imageUrl: suzukiLogo, label: 'Suzuki' },
+    { id: 8, imageUrl: tvsLogo, label: 'TVS' },
+    { id: 9, imageUrl: triumphLogo, label: 'Triumph' },
+    { id: 10, imageUrl: yamahaLogo, label: 'Yamaha' },
+
+    { id: 11, imageUrl: amperelogo, label: 'Ampere' },
+    { id: 12, imageUrl: apriliaLogo, label: 'Aprilia' },
+
+    { id: 13, imageUrl: benelliLogo, label: 'Benelli' },
+    { id: 14, imageUrl: bmwLogo, label: 'BMW' },
+    { id: 15, imageUrl: bsaLogo, label: 'BSA' },
+    { id: 16, imageUrl: bgaussLogo, label: 'Bgauss' },
+    { id: 17, imageUrl: bounceLogo, label: 'Bounce' },
+    { id: 18, imageUrl: brixtonLogo, label: 'Brixton' },
+
+    { id: 19, imageUrl: cfmotoLogo, label: 'Cfmoto' },
+    { id: 20, imageUrl: ducatiLogo, label: 'Ducati' },
+
+    { id: 21, imageUrl: evoletLogo, label: 'Evolet' },
+    { id: 22, imageUrl: ferratoLogo, label: 'Ferrato' },
+    { id: 23, imageUrl: gemopaiLogo, label: 'Gemopai' },
+
+    { id: 24, imageUrl: harleyDavidsonLogo, label: 'Harley-Davidson' },
+
+    { id: 25, imageUrl: hopElectricLogo, label: 'Hop Electric' },
+
+    { id: 26, imageUrl: husqvarnaLogo, label: 'Husqvarna' },
+    { id: 27, imageUrl: indianLogo, label: 'Indian' },
+    { id: 28, imageUrl: ivoomiLogo, label: 'Ivoomi' },
+
+    { id: 29, imageUrl: jawaLogo, label: 'Jawa' },
+    { id: 30, imageUrl: joyEBikeLogo, label: 'Joy Ebike' },
+
+    { id: 31, imageUrl: keewayLogo, label: 'Keeway' },
+    { id: 32, imageUrl: kineticLogo, label: 'Kinetic' },
+    { id: 33, imageUrl: kineticGreenLogo, label: 'Kinetic Green' },
+
+    { id: 34, imageUrl: lambrettaLogo, label: 'Lambretta' },
+    { id: 35, imageUrl: lectrixLogo, label: 'Lectrix' },
+
+    { id: 36, imageUrl: matterLogo, label: 'Matter' },
+    { id: 37, imageUrl: motoGuzziLogo, label: 'Moto Guzzi' },
+    { id: 38, imageUrl: motoMoriniLogo, label: 'Moto Morini' },
+
+    { id: 39, imageUrl: nortonLogo, label: 'Norton' },
+
+    { id: 40, imageUrl: obenLogo, label: 'Oben' },
+    { id: 41, imageUrl: odysseLogo, label: 'Odysse' },
+    { id: 42, imageUrl: okinawaLogo, label: 'Okinawa' },
+    { id: 43, imageUrl: olaLogo, label: 'Ola' },
+
+    { id: 44, imageUrl: pureEvLogo, label: 'Pure-Ev' },
+
+    { id: 45, imageUrl: qjMotorLogo, label: 'Qj-Motor' },
+    { id: 46, imageUrl: quantumEnergyLogo, label: 'Quantum Energy' },
+
+    { id: 47, imageUrl: revoltLogo, label: 'Revolt' },
+
+    { id: 48, imageUrl: simpleEnergyLogo, label: 'Simple Energy' },
+
+    { id: 49, imageUrl: ultravioletteLogo, label: 'Ultraviolette' },
+
+    { id: 50, imageUrl: vespaLogo, label: 'Vespa' },
+    { id: 51, imageUrl: vidaLogo, label: 'Vida' },
+    { id: 52, imageUrl: vlfLogo, label: 'Vlf' },
+
+    { id: 53, imageUrl: yezdiLogo, label: 'Yezdi' },
+    { id: 54, imageUrl: yoLogo, label: 'Yo' },
+    { id: 55, imageUrl: zontesLogo, label: 'Zontes' },
+];
+
+
