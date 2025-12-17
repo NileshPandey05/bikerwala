@@ -18,7 +18,8 @@ export const authGuard: CanActivateFn = () => {
   //     return false;
   //   })
   // );
-  if(authService.isLoggedIn()){
+
+  if(authService.login()){
     return true;
   }
   toaster.error('Please Login');

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of, tap } from 'rxjs';
 
@@ -9,7 +9,7 @@ export interface LoginResponse {
   providedIn: 'root'
 })
 export class AuthService {
-
+  token = signal<string>(this.getToken() ?? '');
   private API = 'https://auth-backend-liart.vercel.app';
 
   constructor(private http: HttpClient) {}
@@ -34,6 +34,8 @@ export class AuthService {
       tap(res => {
         if(res?.token){
           this.setToken(res.token)
+          this.token.set(res.token)
+          console.log("token from api",res.token)
         }
       })
     )
@@ -50,7 +52,16 @@ export class AuthService {
       withCredentials: true
     });
   }
-
+  login():boolean{
+    const localToken = this.getToken()
+   console.log("token from api",this.token)
+   console.log("token from localstorage",localToken)
+   console.log(this.token() === localToken)
+   if(this.token() === localToken){
+    return !!this.getToken();
+   }
+   return false
+  }
   // 🔐 CHECK LOGIN (COOKIE → BACKEND)
   isAuthenticated(): Observable<boolean> {
     return this.http.get<any>(`${this.API}/auth/me`, {
