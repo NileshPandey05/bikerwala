@@ -1,7 +1,7 @@
 import { Prodcuts } from "./data";
 import { bajaj, honda, royalenfield, tvs, yamaha, hero, ktm, kawasaki, suzuki, triumph } from "./imageUrls";
 
-interface Allbike {
+export interface Allbike {
     royalenfield: {
         bikes: Prodcuts[],
         key_highlights: {}
