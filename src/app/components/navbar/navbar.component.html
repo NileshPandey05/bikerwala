@@ -11,13 +11,22 @@
     <div class="flex items-center  justify-between  gap-2  ">
       <app-search-bar class="md:block hidden mb-[1px] " [placeholder]="' Search'" [width]="'321.6px'"/>
       <div class="flex items-center mb-2 mr-4.5  justify-between gap-4">
-        <div class="md:hidden block ">
+        <!-- <div class="md:hidden block ">
           <button routerLink="/"  mat-icon-button>
             <fa-icon class="text-white! flex justify-center md:ml-0 ml-20" [icon]="faMagnifyingGlass"></fa-icon>
           </button>
-        </div>
+        </div> -->
        <button routerLink="/" class="w-10 h-10
-         md:block sm:hidden
+         block md:hidden
+         text-[#D1D1D1]
+         hover:bg-[#1E1D1E]
+         rounded-full
+         transition leading-none ">
+         <!-- <fa-icon class="text-white! flex justify-center md:ml-0 ml-20" [icon]="faLocationDot"></fa-icon> -->
+          <i class="fi fi-rr-search leading-none text-[#D1D1D1] text-2xl "></i>
+       </button>
+       <button routerLink="/" class="w-10 h-10
+         md:block hidden
          text-[#D1D1D1]
          hover:bg-[#1E1D1E]
          rounded-full
@@ -25,7 +34,7 @@
          <!-- <fa-icon class="text-white! flex justify-center md:ml-0 ml-20" [icon]="faLocationDot"></fa-icon> -->
           <i class="fi fi-rs-marker leading-none text-[#D1D1D1] text-2xl "></i>
        </button>
-       <button routerLink="/" class="leading-none!" mat-icon-button>
+       <button routerLink="/" class="leading-none! md:block! hidden!" mat-icon-button>
          <!-- <fa-icon class="text-white leading-none md:block hidden" [icon]="faLanguage"></fa-icon> -->
           <mat-icon class="text-[#D1D1D1]!  md:block hidden">g_translate</mat-icon>
        </button>
