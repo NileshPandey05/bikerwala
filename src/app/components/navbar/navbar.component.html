@@ -11,13 +11,22 @@
     <div class="flex items-center  justify-between  gap-2  ">
       <app-search-bar class="md:block hidden mb-[1px] " [placeholder]="' Search'" [width]="'321.6px'"/>
       <div class="flex items-center mb-2 mr-4.5  justify-between gap-4">
-        <div class="md:hidden block ">
+        <!-- <div class="md:hidden block ">
           <button routerLink="/"  mat-icon-button>
             <fa-icon class="text-white! flex justify-center md:ml-0 ml-20" [icon]="faMagnifyingGlass"></fa-icon>
           </button>
-        </div>
+        </div> -->
        <button routerLink="/" class="w-10 h-10
-         md:block sm:hidden
+         block md:hidden
+         text-[#D1D1D1]
+         hover:bg-[#1E1D1E]
+         rounded-full
+         transition leading-none ">
+         <!-- <fa-icon class="text-white! flex justify-center md:ml-0 ml-20" [icon]="faLocationDot"></fa-icon> -->
+          <i class="fi fi-rr-search leading-none text-[#D1D1D1] text-2xl "></i>
+       </button>
+       <button routerLink="/" class="w-10 h-10
+         md:block hidden
          text-[#D1D1D1]
          hover:bg-[#1E1D1E]
          rounded-full
@@ -25,7 +34,7 @@
          <!-- <fa-icon class="text-white! flex justify-center md:ml-0 ml-20" [icon]="faLocationDot"></fa-icon> -->
           <i class="fi fi-rs-marker leading-none text-[#D1D1D1] text-2xl "></i>
        </button>
-       <button routerLink="/" class="leading-none!" mat-icon-button>
+       <button routerLink="/" class="leading-none! md:block! hidden!" mat-icon-button>
          <!-- <fa-icon class="text-white leading-none md:block hidden" [icon]="faLanguage"></fa-icon> -->
           <mat-icon class="text-[#D1D1D1]!  md:block hidden">g_translate</mat-icon>
        </button>
@@ -37,10 +46,11 @@
 <div (click)="close()" class="overlay w-full h-full bg-black/75 text-(--sidebar-color) rounded-tr-2xl fixed top-14 left-0 opacity-0 hidden z-90">
 </div>
 <div class=" fixed top-0 w-75 h-full -left-75 z-100 bg-[#1A1A1A] text-(--sidebar-color)  sidebar">
+  <h1 class="text-[10px]">EXPLORE BIKES</h1>
   @for (item of menu; track item) {
-      <div (click)="togglediv(item)" class="flex items-center justify-between cursor-pointer  rounded-2xl  sidebar p-4">
+      <div (click)="togglediv(item)" class="flex items-center justify-between cursor-pointer    sidebar h-[52px] p-4">
       <div class="flex items-center gap-4">
-        <mat-icon fontSet="material-symbols-outlined">{{item.icon}}</mat-icon>
+        <mat-icon class="text-[#D1D1D1]!" fontSet="material-symbols-outlined">{{item.icon}}</mat-icon>
         <h2 class="text-[15px] text-[#E8E8E8] font-semibold">{{item.label}}</h2>
       </div>
       @if (item.children) {
@@ -50,7 +60,7 @@
       }
     </div>
     @if (item.children && item.open) {
-       <div class="pl-12 pb-2 text-sm text-gray-400 transition-all ease-in-out duration-500">
+       <div class="pl-12 pb-2 text-sm bg-[#252525] text-gray-400 transition-all ease-out translate-y-1 duration-500">
       @for (child of item.children; track child) {
         <div class="py-1 hover:text-white cursor-pointer">
           {{ child }}
