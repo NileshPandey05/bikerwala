@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, inject } from '@angular/core';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatButton,MatIconButton ,MatButtonModule} from '@angular/material/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -6,13 +6,16 @@ import { faBars,faLocationDot,faLanguage, faMagnifyingGlass } from '@fortawesome
 import { SearchBarComponent } from "../search-bar/search-bar.component";
 import gsap from 'gsap'
 import { RouterLink } from "@angular/router";
+import { AuthService } from '../../services/auth.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-navbar',
-  imports: [MatIconModule, MatIconButton, FontAwesomeModule, SearchBarComponent, RouterLink],
+  imports: [MatIconModule, MatIconButton, FontAwesomeModule, SearchBarComponent, RouterLink,CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements AfterViewInit {
+  auth = inject(AuthService)
   faMagnifyingGlass=faMagnifyingGlass
   menu = [
   { label: 'Home', icon: 'home', open: false },

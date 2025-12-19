@@ -1,6 +1,7 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of, tap } from 'rxjs';
+import { ToasterService } from './toaster.service';
 
 export interface LoginResponse {
   token: string;
@@ -9,6 +10,7 @@ export interface LoginResponse {
   providedIn: 'root'
 })
 export class AuthService {
+  toast = inject(ToasterService)
   token = signal<string>(this.getToken() ?? '');
   private API = 'https://auth-backend-liart.vercel.app';
 
@@ -22,6 +24,7 @@ export class AuthService {
   }
   removeToken(){
     localStorage.removeItem('token')
+    this.toast.success("User Logout")
   }
   isLoggedIn():boolean{
     return !!this.getToken();

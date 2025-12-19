@@ -38,7 +38,8 @@
          <!-- <fa-icon class="text-white leading-none md:block hidden" [icon]="faLanguage"></fa-icon> -->
           <mat-icon class="text-[#D1D1D1]!  md:block hidden">g_translate</mat-icon>
        </button>
-         <h1 routerLink="/signIn" class="text-[14px]  cursor-pointer">Log in</h1>
+         <h1 *ngIf="!auth.isLoggedIn()" routerLink="/signIn" class="text-[14px]  cursor-pointer">Log in</h1>
+         <h1 (click)="auth.removeToken()" *ngIf="auth.isLoggedIn()"class="text-[14px]  cursor-pointer">Logout</h1>
       </div>
     </div>
   </div>
@@ -46,7 +47,7 @@
 <div (click)="close()" class="overlay w-full h-full bg-black/75 text-(--sidebar-color) rounded-tr-2xl fixed top-14 left-0 opacity-0 hidden z-90">
 </div>
 <div class=" fixed top-0 w-75 h-full -left-75 z-100 bg-[#1A1A1A] text-(--sidebar-color)  sidebar">
-  <h1 class="text-[10px]">EXPLORE BIKES</h1>
+  <h1 class="text-[10px] mt-4 ml-4 w-full">EXPLORE BIKES</h1>
   @for (item of menu; track item) {
       <div (click)="togglediv(item)" class="flex items-center justify-between cursor-pointer    sidebar h-[52px] p-4">
       <div class="flex items-center gap-4">
